@@ -1,0 +1,112 @@
+{
+  "name": "remote6",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "application",
+  "prefix": "app",
+  "sourceRoot": "apps/remote6/src",
+  "tags": [],
+  "targets": {
+    "build": {
+      "executor": "@nx/angular:webpack-browser",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/apps/remote6",
+        "index": "apps/remote6/src/index.html",
+        "main": "apps/remote6/src/main.ts",
+        "tsConfig": "apps/remote6/tsconfig.app.json",
+        "inlineStyleLanguage": "scss",
+        "assets": [
+          {
+            "glob": "**/*",
+            "input": "apps/remote6/public"
+          }
+        ],
+        "styles": ["apps/remote6/src/styles.scss"],
+        "customWebpackConfig": {
+          "path": "apps/remote6/webpack.config.ts"
+        }
+      },
+      "configurations": {
+        "production": {
+          "budgets": [
+            {
+              "type": "initial",
+              "maximumWarning": "500kb",
+              "maximumError": "1mb"
+            },
+            {
+              "type": "anyComponentStyle",
+              "maximumWarning": "8kb",
+              "maximumError": "16kb"
+            }
+          ],
+          "outputHashing": "all",
+          "customWebpackConfig": {
+            "path": "apps/remote6/webpack.prod.config.ts"
+          }
+        },
+        "development": {
+          "buildOptimizer": false,
+          "optimization": false,
+          "vendorChunk": true,
+          "extractLicenses": false,
+          "sourceMap": true,
+          "namedChunks": true
+        }
+      },
+      "defaultConfiguration": "production"
+    },
+    "serve": {
+      "continuous": true,
+      "executor": "@nx/angular:dev-server",
+      "options": {
+        "port": 4206,
+        "publicHost": "http://localhost:4206"
+      },
+      "configurations": {
+        "production": {
+          "buildTarget": "remote6:build:production"
+        },
+        "development": {
+          "buildTarget": "remote6:build:development"
+        }
+      },
+      "defaultConfiguration": "development",
+      "dependsOn": ["host1:serve"]
+    },
+    "extract-i18n": {
+      "executor": "@angular-devkit/build-angular:extract-i18n",
+      "options": {
+        "buildTarget": "remote6:build"
+      }
+    },
+    "lint": {
+      "executor": "@nx/eslint:lint"
+    },
+    "test": {
+      "executor": "@nx/vitest:test",
+      "outputs": ["{options.reportsDirectory}"],
+      "options": {
+        "reportsDirectory": "coverage/apps/remote6"
+      }
+    },
+    "serve-static": {
+      "continuous": true,
+      "executor": "@nx/web:file-server",
+      "defaultConfiguration": "production",
+      "options": {
+        "buildTarget": "remote6:build",
+        "port": 4206,
+        "watch": false
+      },
+      "configurations": {
+        "development": {
+          "buildTarget": "remote6:build:development"
+        },
+        "production": {
+          "buildTarget": "remote6:build:production"
+        }
+      }
+    }
+  }
+}
