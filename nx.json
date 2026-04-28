@@ -15,9 +15,7 @@
     {
       "plugin": "@nx/js/typescript",
       "options": {
-        "typecheck": {
-          "targetName": "typecheck"
-        },
+        "typecheck": { "targetName": "typecheck" },
         "build": {
           "targetName": "build",
           "configName": "tsconfig.lib.json",
@@ -26,20 +24,10 @@
         }
       }
     },
-    {
-      "plugin": "@nx/playwright/plugin",
-      "options": {
-        "targetName": "e2e"
-      }
-    },
-    {
-      "plugin": "@nx/eslint/plugin",
-      "options": {
-        "targetName": "lint"
-      }
-    }
+    { "plugin": "@nx/playwright/plugin", "options": { "targetName": "e2e" } },
+    { "plugin": "@nx/eslint/plugin", "options": { "targetName": "lint" } }
   ],
-  "nxCloudId": "69f074aabf3aaaefa7091e31",
+  "nxCloudId": "69f0bf2b3b1f872e766baee5",
   "analytics": false,
   "targetDefaults": {
     "@angular-devkit/build-angular:browser": {
@@ -58,20 +46,11 @@
         "{workspaceRoot}/tools/eslint-rules/**/*"
       ]
     },
-    "@nx/vitest:test": {
-      "cache": true,
-      "inputs": ["default", "^production"]
-    },
+    "@nx/vitest:test": { "cache": true, "inputs": ["default", "^production"] },
     "@nx/angular:webpack-browser": {
       "cache": true,
       "dependsOn": ["^build"],
-      "inputs": [
-        "production",
-        "^production",
-        {
-          "env": "NX_MF_DEV_REMOTES"
-        }
-      ]
+      "inputs": ["production", "^production", { "env": "NX_MF_DEV_REMOTES" }]
     }
   },
   "generators": {
