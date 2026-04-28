@@ -2,5 +2,54 @@
   "extends": "./tsconfig.base.json",
   "compileOnSave": false,
   "files": [],
-  "references": []
+  "references": [
+    {
+      "path": "./apps/remote1-e2e"
+    },
+    {
+      "path": "./apps/remote2-e2e"
+    },
+    {
+      "path": "./apps/remote3-e2e"
+    },
+    {
+      "path": "./apps/remote4-e2e"
+    },
+    {
+      "path": "./apps/remote5-e2e"
+    },
+    {
+      "path": "./apps/remote6-e2e"
+    },
+    {
+      "path": "./apps/host1-e2e"
+    },
+    {
+      "path": "./apps/remote1"
+    },
+    {
+      "path": "./apps/remote2"
+    },
+    {
+      "path": "./apps/remote3"
+    },
+    {
+      "path": "./apps/remote4"
+    },
+    {
+      "path": "./apps/remote5"
+    },
+    {
+      "path": "./apps/remote6"
+    },
+    {
+      "path": "./apps/host1"
+    },
+    {
+      "path": "./apps/host2"
+    },
+    {
+      "path": "./apps/host3"
+    }
+  ]
 }

@@ -1,14 +1,10 @@
 {
   "compilerOptions": {
-    "composite": true,
-    "declarationMap": true,
-    "emitDeclarationOnly": true,
     "importHelpers": true,
     "isolatedModules": true,
-    "lib": ["es2022"],
+    "lib": ["es2022", "dom"],
     "module": "nodenext",
     "moduleResolution": "nodenext",
-    "noEmitOnError": true,
     "noFallthroughCasesInSwitch": true,
     "noImplicitOverride": true,
     "noImplicitReturns": true,
@@ -16,6 +12,14 @@
     "skipLibCheck": true,
     "strict": true,
     "target": "es2022",
-    "customConditions": ["@org/source"]
+    "customConditions": ["@org/source"],
+    "paths": {
+      "remote1/Routes": ["./apps/remote1/src/app/remote-entry/entry.routes.ts"],
+      "remote2/Routes": ["./apps/remote2/src/app/remote-entry/entry.routes.ts"],
+      "remote3/Routes": ["./apps/remote3/src/app/remote-entry/entry.routes.ts"],
+      "remote4/Routes": ["./apps/remote4/src/app/remote-entry/entry.routes.ts"],
+      "remote5/Routes": ["./apps/remote5/src/app/remote-entry/entry.routes.ts"],
+      "remote6/Routes": ["./apps/remote6/src/app/remote-entry/entry.routes.ts"]
+    }
   }
 }
